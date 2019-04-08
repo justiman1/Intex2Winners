@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554752124.9164681
+_modified_time = 1554752696.8784072
 _enable_loop = True
 _template_filename = 'C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/homepage/templates/app_base.htm'
 _template_uri = 'app_base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['navbar_items', 'navbar_items2', 'left_column', 'left_column2']
+_exports = ['navbar_items', 'navbar_items2', 'left_column']
 
 
 def _mako_get_namespace(context, name):
@@ -32,12 +32,10 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def navbar_items2():
             return render_navbar_items2(context._locals(__M_locals))
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
         def left_column():
             return render_left_column(context._locals(__M_locals))
-        def left_column2():
-            return render_left_column2(context._locals(__M_locals))
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_items'):
@@ -90,27 +88,8 @@ def render_left_column(context,**pageargs):
     try:
         def left_column():
             return render_left_column(context)
-        def left_column2():
-            return render_left_column2(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <ul id="topic_list">\r\n        <li><a class="nav-link" href="/">Home</a></li>\r\n        <li><a class="nav-link" href="/contact/">Contact</a></li>\r\n        <li><a class="nav-link" href="/catalog/index/">Catalog</a></li>\r\n    </ul>\r\n    ')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'left_column2'):
-            context['self'].left_column2(**pageargs)
-        
-
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_left_column2(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def left_column2():
-            return render_left_column2(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n        <p>test</p>\r\n    ')
+        __M_writer('\r\n    <ul id="topic_list">\r\n        <li><a class="nav-link" href="/">Home</a></li>\r\n        <li><a class="nav-link" href="/contact/">Contact</a></li>\r\n        <li><a class="nav-link" href="/catalog/index/">Catalog</a></li>\r\n    </ul>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -118,6 +97,6 @@ def render_left_column2(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 8, "57": 3, "65": 3, "70": 7, "76": 5, "82": 5, "88": 10, "96": 10, "101": 18, "107": 16, "113": 16, "119": 113}}
+{"filename": "C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 8, "55": 3, "63": 3, "68": 7, "74": 5, "80": 5, "86": 10, "92": 10, "98": 92}}
 __M_END_METADATA
 """
