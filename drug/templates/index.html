@@ -1,0 +1,22 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">Drugs</%block>
+
+<%block name="center_column">
+    <div class="content">
+        <div class="druglist">
+            <table>
+                <tr>
+                    <td>Drug</td>
+                    <td>Opioid?</td>
+                </tr>
+                %for item in instance:
+                <tr class="druginstance">
+                    <td class="pointer">${ item.drugname } <br></td>
+                    <td class="center">${ 'Yes' if item.isopioid == 1 else 'No' } <br></td>
+                </tr>
+                %endfor
+            </table>
+        </div>
+    </div>
+</%block>

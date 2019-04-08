@@ -1,0 +1,21 @@
+.druglist {
+    overflow-y: scroll;
+    height: 500px;
+}
+
+.druginstance:hover {
+    font-weight: bold;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+td {
+    border: solid 1px black
+}
+
+.center {
+    text-align: center;
+}
+
