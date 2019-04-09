@@ -12,6 +12,8 @@ def process_request(request):
         instance.append(item)
 
     context = {
-       'instance': instance,
+        'instance': instance,
     }
     return request.dmp.render('index.html', context)
+
+

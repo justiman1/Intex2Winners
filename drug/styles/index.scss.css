@@ -1,6 +1,6 @@
 .druglist {
   overflow-y: scroll;
-  height: 500px;
+  height: 600px;
 }
 
 .druginstance:hover {
@@ -17,6 +17,10 @@ td {
 
 .center {
   text-align: center;
+}
+
+table {
+  margin: auto;
 }
 
 /*# sourceMappingURL=index.scss.css.map */
