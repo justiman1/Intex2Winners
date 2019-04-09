@@ -4,17 +4,19 @@ from datetime import datetime, timezone
 from drug import models as dmod
 
 @view_function
-def process_request(request, drug = 'ABILIFY'):
-    meds = dmod.Opioids.objects.get(drugname = drug)
+def process_request(request, drugs:str):
+    print(drugs)
+    meds = dmod.Opioids.objects.get(drugname = drugs)
 
     prescribers = []
-    for dr in dmod.PrescriberInfo.objects.raw('SELECT TOP(10) DoctorID, fname, lname, ' + drug + ' AS quantity FROM prescriber_info ORDER BY ' + drug + ' DESC'):
+    for dr in dmod.PrescriberInfo.objects.raw('SELECT TOP(10) DoctorID, fname, lname, ' + drugs + ' AS quantity FROM prescriber_info ORDER BY ' + drugs + ' DESC'):
         prescribers.append(dr)
     
     context = {
         'meds': meds,
         'prescribers': prescribers,
     }
+
     return request.dmp.render('index.html', context)
 
 

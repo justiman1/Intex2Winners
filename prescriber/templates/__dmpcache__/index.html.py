@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554823439.710385
+_modified_time = 1554826631.736905
 _enable_loop = True
 _template_filename = 'C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/prescriber/templates/index.html'
 _template_uri = 'index.html'
@@ -30,13 +30,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def center_column():
-            return render_center_column(context._locals(__M_locals))
+        dr = context.get('dr', UNDEFINED)
+        medications = context.get('medications', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
-        dr = context.get('dr', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        medications = context.get('medications', UNDEFINED)
+        def center_column():
+            return render_center_column(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -69,11 +69,11 @@ def render_title(context,**pageargs):
 def render_center_column(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
+        dr = context.get('dr', UNDEFINED)
+        medications = context.get('medications', UNDEFINED)
         def center_column():
             return render_center_column(context)
-        medications = context.get('medications', UNDEFINED)
-        dr = context.get('dr', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n<div class="content">\r\n    <h3>')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( dr.fname ))
@@ -89,7 +89,7 @@ def render_center_column(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( dr.specialty ))
         __M_writer('</td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n            <div class="col">\r\n                <div class="drugsprescribed">\r\n                    <table>\r\n                        <tr>\r\n                            <td>Drug Name</td>\r\n                            <td>Quantity Ordered</td>\r\n                        </tr>\r\n')
         for m in medications:
-            __M_writer('                            <tr>\r\n                                <td><a href="/drug/')
+            __M_writer('                            <tr>\r\n                                <td><a href="/drug/index/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( m.drug ))
             __M_writer('">')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( m.drug ))

@@ -4,7 +4,7 @@
 
 <%block name="center_column">
 <h3 class="center">${ meds.drugname }</h3>
-<p>${ 'This drug is an opiate' if meds.isopioid == 1 else 'This drug is not an opiate' }</p>
+<p class="opiate center">${ 'OPIATE' if meds.isopioid == 1 else '' }</p>
 <br>
 <table class="center">
     <tr>

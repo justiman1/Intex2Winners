@@ -109,9 +109,9 @@ DATABASES = {
         'PASSWORD': 'Team1Rocks',
         'HOST': 'us-opiate-prescriptions.database.windows.net',
         'PORT': '',
-        'OPTIONS': {
-            'driver': 'ODBC Driver 13 for SQL Server',
-        }
+        # 'OPTIONS': {
+        #     'driver': 'ODBC Driver 13 for SQL Server',
+        # }
     }
 }
 

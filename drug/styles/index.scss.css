@@ -15,6 +15,15 @@ td {
   border: solid 1px black;
 }
 
+.center {
+  text-align: center;
+}
+
+.opiate {
+  color: red;
+  font-size: 14pt;
+}
+
 table {
   margin: auto;
 }

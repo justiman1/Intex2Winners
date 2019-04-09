@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554823390.4737544
+_modified_time = 1554826863.3032892
 _enable_loop = True
 _template_filename = 'C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/drug/templates/index.html'
 _template_uri = 'index.html'
@@ -30,13 +30,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def center_column():
-            return render_center_column(context._locals(__M_locals))
         prescribers = context.get('prescribers', UNDEFINED)
+        meds = context.get('meds', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        meds = context.get('meds', UNDEFINED)
+        def center_column():
+            return render_center_column(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -69,16 +69,16 @@ def render_title(context,**pageargs):
 def render_center_column(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
+        meds = context.get('meds', UNDEFINED)
         def center_column():
             return render_center_column(context)
-        meds = context.get('meds', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n<h3 class="center">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( meds.drugname ))
-        __M_writer('</h3>\r\n<p>')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'This drug is an opiate' if meds.isopioid == 1 else 'This drug is not an opiate' ))
+        __M_writer('</h3>\r\n<p class="opiate center">')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'OPIATE' if meds.isopioid == 1 else '' ))
         __M_writer('</p>\r\n<br>\r\n<table class="center">\r\n    <tr>\r\n        <td>ID</td>\r\n        <td>Name</td>\r\n        <td>Quantity</td>\r\n    </tr>\r\n')
         for dr in prescribers:
             __M_writer('        <tr>\r\n            <td>')
