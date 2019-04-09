@@ -5,11 +5,20 @@ from drug import models as dmod
 @view_function
 def process_request(request, drug):
     prescribers = []
+    instance = []
+    
+    for item in dmod.Opioids.objects.all():
+        instance.append(item)
 
-    for dr in dmod.PrescriberInfo.objects.raw('SELECT TOP(10) DoctorID, fname, lname, ' + drug + ' FROM prescriber_info ORDER BY ' + drug + ' DESC'):
+    context = {
+        'instance': instance,
+    }
+
+    for dr in dmod.PrescriberInfo.objects.raw('SELECT TOP(10) DoctorID, fname, lname, ' + drug + ' AS quantity FROM prescriber_info ORDER BY ' + drug + ' DESC'):
         prescribers.append(dr)
     
     context = {
+        'instance': instance,
         'drug': drug,
         'prescribers': prescribers,
     }
