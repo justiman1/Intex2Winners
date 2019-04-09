@@ -1,0 +1,18 @@
+td {
+  border: solid 1px black;
+}
+
+.tabletitle {
+  border: none;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+a {
+  color: black;
+}
+
+/*# sourceMappingURL=top10.scss.css.map */

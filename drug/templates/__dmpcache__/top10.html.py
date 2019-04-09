@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554778942.3433874
+_modified_time = 1554778719.0452156
 _enable_loop = True
-_template_filename = 'C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/drug/templates/index.html'
-_template_uri = 'index.html'
+_template_filename = 'C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/drug/templates/top10.html'
+_template_uri = 'top10.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
@@ -30,12 +30,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def center_column():
-            return render_center_column(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
-        instance = context.get('instance', UNDEFINED)
+        drug = context.get('drug', UNDEFINED)
+        def center_column():
+            return render_center_column(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -68,21 +69,24 @@ def render_title(context,**pageargs):
 def render_center_column(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        prescribers = context.get('prescribers', UNDEFINED)
+        drug = context.get('drug', UNDEFINED)
         def center_column():
             return render_center_column(context)
-        instance = context.get('instance', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="content">\r\n        <div class="row">\r\n            <div class="col">\r\n                <div class="druglist">\r\n                    <table>\r\n                        <tr>\r\n                            <td><b>Drug</b></td>\r\n                            <td><b>Opioid?</b></td>\r\n                        </tr>\r\n')
-        for item in instance:
-            __M_writer('                        <tr class="druginstance">\r\n                            <td class="pointer" onclick="window.location.href=\'/drug/top10/')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( item.drugname ))
-            __M_writer('\'">')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( item.drugname ))
-            __M_writer(' <br></td>\r\n                            <td class="center">')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'Yes' if item.isopioid == 1 else 'No' ))
-            __M_writer(' <br></td>\r\n                        </tr>\r\n')
-        __M_writer('                    </table>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n')
+        __M_writer('\r\n    <div class="content">\r\n        <div class="row">\r\n            <div class="col">\r\n                <div>\r\n                    <h3 class="center">')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drug ))
+        __M_writer('</h3>\r\n                    <br>\r\n                        <table class="center">\r\n                        <tr>\r\n                            <td>ID</td>\r\n                            <td>Name</td>\r\n                        </tr>\r\n')
+        for dr in prescribers:
+            __M_writer('                            <tr>\r\n                                <td>')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( dr.doctorid ))
+            __M_writer('<br></td>\r\n                                <td>')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( dr.fname ))
+            __M_writer(' ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( dr.lname ))
+            __M_writer('<br></td>\r\n                            </tr>\r\n')
+        __M_writer('                    </table>\r\n                    <a href="/drug/">Back to List</a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -90,6 +94,6 @@ def render_center_column(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/drug/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 3, "50": 27, "56": 3, "62": 3, "68": 5, "76": 5, "77": 15, "78": 16, "79": 17, "80": 17, "81": 17, "82": 17, "83": 18, "84": 18, "85": 21, "91": 85}}
+{"filename": "C:/Users/justi/OneDrive/Desktop/School/Winter 2019/INTEX/website/website/drug/templates/top10.html", "uri": "top10.html", "source_encoding": "utf-8", "line_map": {"29": 0, "41": 1, "46": 3, "51": 30, "57": 3, "63": 3, "69": 5, "78": 5, "79": 10, "80": 10, "81": 17, "82": 18, "83": 19, "84": 19, "85": 20, "86": 20, "87": 20, "88": 20, "89": 23, "95": 89}}
 __M_END_METADATA
 """

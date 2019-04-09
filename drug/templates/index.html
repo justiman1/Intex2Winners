@@ -4,19 +4,24 @@
 
 <%block name="center_column">
     <div class="content">
-        <div class="druglist">
-            <table>
-                <tr>
-                    <td>Drug</td>
-                    <td>Opioid?</td>
-                </tr>
-                %for item in instance:
-                <tr class="druginstance">
-                    <td class="pointer">${ item.drugname } <br></td>
-                    <td class="center">${ 'Yes' if item.isopioid == 1 else 'No' } <br></td>
-                </tr>
-                %endfor
-            </table>
+        <div class="row">
+            <div class="col">
+                <div class="druglist">
+                    <table>
+                        <tr>
+                            <td><b>Drug</b></td>
+                            <td><b>Opioid?</b></td>
+                        </tr>
+                        %for item in instance:
+                        <tr class="druginstance">
+                            <td class="pointer" onclick="window.location.href='/drug/top10/${ item.drugname }'">${ item.drugname } <br></td>
+                            <td class="center">${ 'Yes' if item.isopioid == 1 else 'No' } <br></td>
+                        </tr>
+                        %endfor
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
 </%block>

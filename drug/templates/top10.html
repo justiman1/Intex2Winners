@@ -1,0 +1,30 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">Drugs</%block>
+
+<%block name="center_column">
+    <div class="content">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h3 class="center">${ drug }</h3>
+                    <br>
+                        <table class="center">
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                        </tr>
+                        %for dr in prescribers:
+                            <tr>
+                                <td>${ dr.doctorid }<br></td>
+                                <td>${ dr.fname } ${ dr.lname }<br></td>
+                            </tr>
+                        %endfor
+                    </table>
+                    <a href="/drug/">Back to List</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</%block>
