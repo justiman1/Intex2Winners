@@ -3,30 +3,21 @@
 <%block name="title">Drugs</%block>
 
 <%block name="center_column">
-    <div class="content">
-        <div class="row">
-            <div class="col">
-                <div class="druglist">
-                    <table>
-                        <tr>
-                            <td><b>Drug</b></td>
-                            <td><b>Opioid?</b></td>
-                        </tr>
-                        %for item in instance:
-                        <tr class="druginstance">
-                            <td class="pointer" onclick="window.location.href='/drug/top10/${ item.drugname }'">${ item.drugname } <br></td>
-                            <td class="center">${ 'Yes' if item.isopioid == 1 else 'No' } <br></td>
-                        </tr>
-                        %endfor
-                    </table>
-                </div>
-            </div>
-
-            <div class="col">
-                   <%block name="top10">
-                   </%block> 
-            </div>
-
-        </div>
-    </div>
+<h3 class="center">${ meds.drugname }</h3>
+<p>${ 'This drug is an opiate' if meds.isopioid == 1 else 'This drug is not an opiate' }</p>
+<br>
+<table class="center">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Quantity</td>
+    </tr>
+    %for dr in prescribers:
+        <tr>
+            <td>${ dr.doctorid }<br></td>
+            <td>${ dr.fname } ${ dr.lname }<br></td>
+            <td>${ dr.quantity }<br></td>
+        </tr>
+    %endfor
+</table>
 </%block>

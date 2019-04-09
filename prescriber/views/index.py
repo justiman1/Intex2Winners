@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from drug import models as dmod
 
 @view_function
-def process_request(request, doctor):
+def process_request(request, doctor = 1003002320):
     dr = dmod.PrescriberInfo.objects.get(doctorid = doctor)
 
     medications = []
