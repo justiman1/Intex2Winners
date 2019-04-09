@@ -1,0 +1,47 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+<%block name="title">Prescribers</%block>
+
+<%block name="center_column">
+<div class="content">
+    <h3>${ dr.fname } ${ dr.lname }</h3>  
+        <div class="row">
+            <div class="col"> 
+                <table>
+                    <tr>
+                        <td>Gender:</td>
+                        <td>${ dr.gender }</td>
+                    </tr>
+                    <tr>
+                        <td>Credentials:</td>
+                        <td>${ dr.credentials }</td>
+                    </tr>
+                    <tr>
+                        <td>Location:</td>
+                        <td>${ dr.state }</td>
+                    </tr>
+                    <tr>
+                        <td>Specialty:</td>
+                        <td>${ dr.specialty }</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col">
+                <div class="drugsprescribed">
+                    <table>
+                        <tr>
+                            <td>Drug Name</td>
+                            <td>Quantity Ordered</td>
+                        </tr>
+                        %for m in medications:
+                            <tr>
+                                <td>${ m.drug }</td>
+                                <td>${ m.qty }</td>
+                            </tr>
+                        %endfor
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+</%block>

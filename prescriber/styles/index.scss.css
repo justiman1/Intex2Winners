@@ -1,0 +1,14 @@
+.drugsprescribed {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+main {
+  text-align: center;
+}
+
+h4.utc-time {
+  color: #3771A1;
+}
+
+/*# sourceMappingURL=index.scss.css.map */
